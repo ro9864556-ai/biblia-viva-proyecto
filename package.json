@@ -1,0 +1,49 @@
+{
+  "name": "biblia-viva",
+  "productName": "Biblia Viva",
+  "version": "1.0.0",
+  "description": "Herramienta gratuita para explorar, estudiar y enseñar la Palabra de Dios.",
+  "author": "Osvaldo Rivera",
+  "license": "GPL-3.0-only",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "org.biblia-viva.app",
+    "productName": "Biblia Viva",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "src/**/*",
+      "LICENCIA-TEXTO-BIBLICO.txt"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "src/img/icono.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Biblia Viva",
+      "deleteAppDataOnUninstall": false
+    }
+  }
+}

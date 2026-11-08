@@ -1,0 +1,362 @@
+@font-face {
+  font-family: "Lora";
+  src: url("fonts/Lora-Variable.ttf") format("truetype");
+  font-weight: 400 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Lora";
+  src: url("fonts/Lora-Italic-Variable.ttf") format("truetype");
+  font-weight: 400 700;
+  font-style: italic;
+}
+
+:root {
+  /* Paleta oficial BIBLIA-VIVA */
+  --azul-marino: #0B1E4D;
+  --dorado: #D4AF37;
+  --luz: #FFD700;
+  --marfil: #F5F5F5;
+
+  --fondo: var(--azul-marino);
+  --panel: #13296A;
+  --barra: #081634;
+  --borde: #2A3F7A;
+  --texto: var(--marfil);
+  --texto-suave: #C9D1E6;
+  --pergamino: var(--marfil);
+  --tinta: var(--azul-marino);
+  --tam: 18px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: "Lora", Georgia, serif;
+  font-size: 15px;
+}
+
+button, input, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: var(--panel);
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  padding: 7px 12px;
+  cursor: pointer;
+}
+
+button:hover { border-color: var(--dorado); }
+button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: 2px solid var(--dorado);
+  outline-offset: 2px;
+}
+
+button.primario {
+  background: var(--dorado);
+  color: var(--fondo);
+  border-color: var(--dorado);
+  font-weight: 600;
+}
+
+button.activo { border-color: var(--dorado); color: var(--dorado); }
+
+.barra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 18px;
+  background: var(--barra);
+  border-bottom: 1px solid var(--borde);
+  flex-wrap: wrap;
+}
+
+.marca {
+  font-family: "Lora", Georgia, serif;
+  font-size: 20px;
+  color: var(--dorado);
+  letter-spacing: 0.5px;
+}
+
+.nav { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.contenido {
+  height: calc(100% - 58px);
+  overflow: auto;
+  padding: 24px;
+}
+
+.pantalla { max-width: 860px; margin: 0 auto; }
+
+h1, h2, h3 {
+  font-family: "Lora", Georgia, serif;
+  font-weight: normal;
+  color: var(--dorado);
+}
+
+h1 { font-size: 28px; margin: 0 0 6px; }
+h2 { font-size: 22px; margin: 18px 0 10px; }
+h3 { font-size: 17px; margin: 14px 0 8px; }
+
+.suave { color: var(--texto-suave); }
+.pequeno { font-size: 13px; }
+
+.tarjeta {
+  background: var(--panel);
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin: 14px 0;
+}
+
+.acciones { display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0; }
+
+/* Bienvenida */
+.bienvenida-texto {
+  font-family: "Lora", Georgia, serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.cita-destacada {
+  border-left: 3px solid var(--dorado);
+  padding: 6px 14px;
+  margin: 14px 0;
+  font-family: "Lora", Georgia, serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.cita-destacada cite {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  font-style: normal;
+  color: var(--texto-suave);
+}
+
+.opciones { display: flex; flex-direction: column; gap: 8px; }
+.opciones button { text-align: left; padding: 10px 14px; }
+
+/* Lector */
+.lector {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 18px;
+  height: 100%;
+}
+
+.lector.con-panel { grid-template-columns: 200px 1fr 340px; }
+
+.lista-libros {
+  overflow: auto;
+  border-right: 1px solid var(--borde);
+  padding-right: 10px;
+}
+
+.lista-libros button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 4px;
+  border-color: transparent;
+  background: transparent;
+}
+
+.lista-libros button.activo { background: var(--panel); border-color: var(--dorado); }
+
+.capitulos { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.capitulos button { min-width: 42px; }
+
+.texto-biblico {
+  background: var(--pergamino);
+  color: var(--tinta);
+  border-radius: 10px;
+  padding: 26px 30px;
+  font-family: "Lora", Georgia, serif;
+  font-size: var(--tam);
+  line-height: 1.75;
+  overflow: auto;
+}
+
+.texto-biblico h2 { color: var(--tinta); margin-top: 0; font-size: calc(var(--tam) + 6px); }
+
+.versiculo {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 6px 8px;
+  margin: 2px 0;
+  color: var(--tinta);
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.versiculo:hover { border-color: var(--dorado); background: #fff8e6; }
+
+.versiculo .num {
+  font-size: 0.7em;
+  color: #7a6a44;
+  font-weight: bold;
+  margin-right: 6px;
+  vertical-align: super;
+}
+
+.versiculo.marcado::after { content: " ★"; color: #b8860b; }
+
+.nota-muestra {
+  font-size: 13px;
+  color: var(--texto-suave);
+  margin-top: 12px;
+}
+
+.navegacion-capitulo {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 14px;
+}
+
+/* Panel contextual */
+.panel {
+  background: var(--panel);
+  border-left: 1px solid var(--borde);
+  padding: 16px;
+  overflow: auto;
+  border-radius: 10px;
+}
+
+.panel .cerrar { float: right; }
+
+.panel .texto-panel {
+  font-family: "Lora", Georgia, serif;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 10px 0;
+}
+
+.relacionada {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 8px;
+}
+
+.relacionada small { display: block; color: var(--texto-suave); margin-top: 3px; }
+
+.tipo {
+  display: inline-block;
+  font-size: 12px;
+  padding: 1px 7px;
+  border-radius: 10px;
+  background: var(--borde);
+  color: var(--texto-suave);
+  margin-bottom: 3px;
+}
+
+.cadena { font-size: 13px; color: var(--texto-suave); line-height: 1.8; }
+.cadena button { padding: 2px 8px; font-size: 13px; }
+
+textarea {
+  width: 100%;
+  min-height: 90px;
+  background: #0E2255;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  padding: 8px;
+  resize: vertical;
+}
+
+/* Biblioteca */
+.elemento {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  border-bottom: 1px solid var(--borde);
+  padding: 12px 0;
+}
+
+.elemento p { margin: 4px 0 0; color: var(--texto-suave); font-size: 14px; }
+
+.rango {
+  width: 220px;
+  vertical-align: middle;
+}
+
+.aviso {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  background: var(--barra);
+  border: 1px solid var(--dorado);
+  border-radius: 8px;
+  padding: 10px 14px;
+  max-width: 360px;
+}
+
+.aviso[hidden] { display: none; }
+
+@media (max-width: 900px) {
+  .lector, .lector.con-panel { grid-template-columns: 1fr; }
+  .lista-libros { border-right: none; border-bottom: 1px solid var(--borde); padding: 0 0 10px; max-height: 140px; }
+  .panel { border-left: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+/* Atlas */
+.atlas-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 18px; align-items: start; }
+.atlas-mapa { width: 100%; height: auto; border: 1px solid var(--borde); border-radius: 10px; }
+.atlas-tiempo { width: 100%; height: auto; margin-top: 6px; }
+.fondo-mapa { fill: #0E2255; }
+.rejilla { stroke: #22376F; stroke-width: 1; }
+.rejilla-texto { fill: var(--texto-suave); font-size: 11px; }
+.ruta { fill: none; stroke: var(--dorado); stroke-width: 2; stroke-dasharray: 6 4; }
+.marcador circle { fill: var(--pergamino); stroke: var(--dorado); stroke-width: 2; cursor: pointer; }
+.marcador.activo circle { fill: var(--dorado); }
+.marcador text { fill: var(--texto); font-size: 13px; pointer-events: none; }
+.eje-tiempo { stroke: var(--borde); stroke-width: 2; }
+.punto-tiempo { fill: var(--pergamino); stroke: var(--dorado); cursor: pointer; }
+.punto-tiempo.activo { fill: var(--dorado); }
+.tiempo-etiqueta { fill: var(--texto-suave); font-size: 11px; text-anchor: middle; }
+.elemento-atlas { border-bottom: 1px solid var(--borde); padding: 12px 0; }
+.elemento-atlas h3 { margin: 6px 0 4px; font-size: 16px; }
+.elemento-atlas p { margin: 4px 0; }
+.atlas-pasaje { position: relative; }
+.atlas-pasaje .cerrar { float: right; }
+.atlas-pasaje .num { font-size: 0.7em; color: var(--dorado); font-weight: bold; margin-right: 4px; vertical-align: super; }
+.atlas-pasaje .texto-panel p { margin: 6px 0; }
+@media (max-width: 900px) { .atlas-grid { grid-template-columns: 1fr; } }
+
+/* Imágenes de versículos */
+.imagen-versiculo { margin: 10px 0; }
+.imagen-versiculo img { width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--borde); display: block; }
+.imagen-versiculo figcaption { margin-top: 4px; }
+
+/* Apoyo voluntario */
+.apoyo { border-color: var(--dorado); }
+.boton { display: inline-block; padding: 7px 14px; border: 1px solid var(--dorado); border-radius: 6px; text-decoration: none; color: var(--dorado); }
+.boton:hover { background: var(--panel); }
+
+/* Miniaturas en el atlas */
+.atlas-miniatura { margin: 8px 0; max-width: 320px; }
+.atlas-miniatura img { width: 100%; height: auto; }
+
+/* Marca */
+.marca { display: flex; align-items: center; gap: 10px; }
+.marca-icono { width: 36px; height: 36px; border-radius: 8px; }
+.lema { font-style: italic; color: var(--texto-suave); margin: 0 0 14px; }
